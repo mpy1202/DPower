@@ -54,7 +54,7 @@ public class adapter_malt extends BaseAdapter {
 
         String maltName  = malts.get(i);
         String maltWeight =String.format("%.1f kg",weight.get(i));
-        String maltPower = String.format("%d L", power.get(i));
+        String maltPower = String.format("%d °L", power.get(i));
 
         textView_name.setText(maltName);
         textView_power.setText(maltPower);

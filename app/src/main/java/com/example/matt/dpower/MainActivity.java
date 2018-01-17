@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -62,9 +63,29 @@ public class MainActivity extends AppCompatActivity {
 
                 maltList.setAdapter(maltAdapter);
 
-                //ToDo: Calculate total Lintner and display it
+                calcLintner();
+
+
             }
         }
+    }
+
+
+    public void calcLintner(){
+        int len=malts.size();
+        double totalWeight = 0;
+        double totalLint = 0;
+
+        for(int i = 0; i < len; i++){
+            totalWeight += weight.get(i);
+            totalLint += weight.get(i) * power.get(i);
+        }
+
+        double lint = totalLint / totalWeight;
+        //double roundLint = (double) Math.round(lint * 100) / 100;
+
+        TextView txtLint = (TextView) findViewById(R.id.txtLint);
+        txtLint.setText(String.format("%.1f °L",lint));
     }
 
 }
